@@ -49,7 +49,7 @@ export default function Footer() {
             <ul className='mt-3 space-y-2 text-sm'>
               <li>
                 <a
-                  href='https://github.com/yourusername'
+                  href='https://github.com/Shehu-Muhammad'
                   target='_blank'
                   rel='noopener noreferrer'
                   className='text-slate-400 transition hover:text-white'
@@ -59,7 +59,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href='https://www.linkedin.com/in/yourlinkedin'
+                  href='https://www.linkedin.com/in/shehu-muhammad'
                   target='_blank'
                   rel='noopener noreferrer'
                   className='text-slate-400 transition hover:text-white'
@@ -69,7 +69,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href='mailto:youremail@example.com'
+                  href='mailto:shehuaamuhammad@gmail.com'
                   className='text-slate-400 transition hover:text-white'
                 >
                   Email
