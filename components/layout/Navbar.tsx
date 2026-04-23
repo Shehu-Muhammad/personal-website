@@ -5,9 +5,12 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { navLinks } from '@/data/navLinks';
 import Container from './Container';
+import { useState } from 'react';
+import MobileMenu from './MobileMenu';
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className='sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur'>
@@ -22,7 +25,10 @@ export default function Navbar() {
 
           <div className='hidden items-center gap-8 md:flex'>
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive =
+                link.href === '/'
+                  ? pathname === '/'
+                  : pathname.startsWith(link.href);
 
               return (
                 <Link
@@ -49,11 +55,25 @@ export default function Navbar() {
 
           <button
             type='button'
+            onClick={() => setIsMenuOpen((prev) => !prev)}
             className='inline-flex items-center justify-center rounded-md p-2 text-white transition hover:bg-white/10 md:hidden'
-            aria-label='Open menu'
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMenuOpen}
+            aria-controls='mobile-menu'
           >
-            <span className='block h-0.5 w-6 bg-white'></span>
+            <div className='flex flex-col gap-1'>
+              <span className='block h-0.5 w-6 bg-white'></span>
+              <span className='block h-0.5 w-6 bg-white'></span>
+              <span className='block h-0.5 w-6 bg-white'></span>
+            </div>
           </button>
+
+          <div id='mobile-menu'>
+            <MobileMenu
+              isOpen={isMenuOpen}
+              onClose={() => setIsMenuOpen(false)}
+            />
+          </div>
         </nav>
       </Container>
     </header>
