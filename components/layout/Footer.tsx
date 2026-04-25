@@ -80,7 +80,7 @@ export default function Footer() {
         </div>
 
         <div className='border-t border-white/10 py-4'>
-          <p className='text-center text-xs text-slate-500'>
+          <p className='text-center text-xs text-slate-400'>
             © {new Date().getFullYear()} Shehu Muhammad. All rights reserved.
           </p>
         </div>
